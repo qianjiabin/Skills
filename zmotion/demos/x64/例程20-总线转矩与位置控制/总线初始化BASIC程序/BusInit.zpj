@@ -1,0 +1,14 @@
+[Controller]
+TypeName=
+IfUpload=0
+UserVersion=1.0
+Files=1
+Breaks=0
+Watches=0
+[FileList]
+File1=ECAT初始化.bas
+FileType1=1
+AutoRun1=-1
+[OpenList]
+OpenFile1=ECAT初始化.bas
+OpenLine1=0

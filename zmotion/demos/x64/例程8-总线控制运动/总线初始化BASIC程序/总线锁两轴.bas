@@ -1,0 +1,40 @@
+
+'方法1
+PWM_FREQ(0)=0 '1K 频率
+PWM_DUTY(0)=0.5
+
+'方法2
+HW_TIMER(0, 1000000, 500000, 2, OFF, 0) '模式 0 停止硬件定时器
+TRIGGER
+OP(0, OFF)
+HW_TIMER(2, 1000000, 900000, -1, OFF, 0) '输出口 0 变为 on 后，硬件定时器触发开始
+OP(0, ON)
+
+'pwm抓取 示波器
+
+'REG_INPUTS = $2100 '映射锁存通道 R3-R0 对应到输入口 1,0,0,0
+'RUNTASK 3,REG1
+'RUNTASK 2,REG2
+
+
+end
+
+GLOBAL SUB	REG1()
+	WHILE 1
+		BASE(0)
+		REGIST(18)
+		WAIT UNTIL MARKC '探针 1 
+		?"轴0锁存位置 REG_POSC",REG_POSC
+	WEND
+ENDSUB	
+
+GLOBAL SUB	REG2()
+	WHILE 1
+		BASE(1)
+		REGIST(20)
+		WAIT UNTIL MARKD '探针 1 
+		?"轴1锁存位置 REG_POSC",REG_POSD
+	WEND
+ENDSUB
+
+
