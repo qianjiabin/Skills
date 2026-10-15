@@ -1,0 +1,8 @@
+# Skills 仓库本地 .gitignore
+# 主力规则在 C:/Users/SZJCZ/.gitignore_global
+# 这里只放本仓库特有的例外与说明
+
+# 第三方运行时 dll（Learol / Newtonsoft.Json）需要随仓库分发
+# 例外已写在全局 .gitignore_global 末尾
+!libs/**/*.dll
+!libs/**/*.png
